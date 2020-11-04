@@ -24,6 +24,7 @@ namespace API.Controllers
         public ActionResult<AppUser> GetNotFound()
         {
             var thing = this._context.Users.Find(-1);
+
             if(thing == null) return NotFound();
 
             return Ok(thing);
@@ -33,9 +34,10 @@ namespace API.Controllers
         public ActionResult<string> GetServerError()
         {
             var thing = this._context.Users.Find(-1);
-            var thingToreturn = thing.ToString();
 
-            return thingToreturn;
+            var thingToReturn = thing.ToString();
+
+            return thingToReturn;
         }
 
         [HttpGet("bad-request")]
